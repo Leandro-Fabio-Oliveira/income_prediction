@@ -21,12 +21,11 @@ def main_app():
     """, unsafe_allow_html=True)
     
     # Tabs creation
-    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5 = st.tabs([
         'Introduction',
         'Data Understanding',
         'Data Preparation',
         'Modeling',
-        'Evaluation',
         'Deployment'
         ])
     
@@ -170,15 +169,52 @@ def main_app():
     
     with tab3:
         st.markdown('## 05 - Data Preparation')
+        
+        st.markdown("""
+        Here, we did few changes in the dataset. First filled nan values in **job_tenure**
+        with the mean, and next created a new variabel **log_income** that is the log of **income**
+        """, unsafe_allow_html=True)
     
     with tab4:
         st.markdown('## 06 - Modeling')
+        
+        st.markdown("""
+        |    | 0                 | 1                | 2                   | 3         |
+        |---:|:------------------|:-----------------|:--------------------|:----------|
+        |  0 | Dep. Variable:    | log_renda        | R-squared:          | 0.342     |
+        |  1 | Model:            | OLS              | Adj. R-squared:     | 0.341     |
+        |  2 | Method:           | Least Squares    | F-statistic:        | 407.0     |
+        |  3 | Date:             | Mon, 29 Sep 2025 | Prob (F-statistic): | 0.00      |
+        |  4 | Time:             | 21:22:14         | Log-Likelihood:     | -11098.   |
+        |  5 | No. Observations: | 10215            | AIC:                | 2.222e+04 |
+        |  6 | Df Residuals:     | 10201            | BIC:                | 2.233e+04 |
+        |  7 | Df Model:         | 13               |                     |           |
+        |  8 | Covariance Type:  | nonrobust        |                     |           |
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        |  0 |                                 | coef    | std err | t      | P>|t| | [0.025 | 0.975] |
+        |---:|:--------------------------------|:--------|:--------|:-------|:------|:-------|:-------|
+        |  1 | Intercept                       | 7.1537  | 0.077   | 93.440 | 0.000 | 7.004  | 7.304  |
+        |  2 | sexo[T.M]                       | 0.7900  | 0.017   | 47.359 | 0.000 | 0.757  | 0.823  |
+        |  3 | posse_de_veiculo[T.True]        | 0.0421  | 0.016   | 2.658  | 0.008 | 0.011  | 0.073  |
+        |  4 | posse_de_imovel[T.True]         | 0.0996  | 0.015   | 6.494  | 0.000 | 0.070  | 0.130  |
+        |  5 | tipo_renda[T.Bolsista]          | 0.1122  | 0.272   | 0.413  | 0.680 | -0.421 | 0.645  |
+        |  6 | tipo_renda[T.Empresário]        | 0.1377  | 0.018   | 7.649  | 0.000 | 0.102  | 0.173  |
+        |  7 | tipo_renda[T.Pensionista]       | -0.2044 | 0.025   | -8.118 | 0.000 | -0.254 | -0.155 |
+        |  8 | tipo_renda[T.Servidor público]  | 0.0560  | 0.027   | 2.100  | 0.036 | 0.004  | 0.108  |
+        |  9 | educacao[T.Pós graduação]       | 0.0986  | 0.187   | 0.527  | 0.598 | -0.268 | 0.465  |
+        | 10 | educacao[T.Secundário]          | -0.0481 | 0.068   | -0.710 | 0.478 | -0.181 | 0.085  |
+        | 11 | educacao[T.Superior completo]   | 0.0832  | 0.068   | 1.219  | 0.223 | -0.051 | 0.217  |
+        | 12 | educacao[T.Superior incompleto] | -0.0394 | 0.077   | -0.515 | 0.607 | -0.189 | 0.111  |
+        | 13 | idade                           | 0.0054  | 0.001   | 6.221  | 0.000 | 0.004  | 0.007  |
+        | 14 | tempo_emprego                   | 0.0613  | 0.001   | 49.060 | 0.000 | 0.059  | 0.064  |
+        """)
     
     with tab5:
-        st.markdown('## 07 - Evaluation')
-    
-    with tab6:
         st.markdown('## 08 - Deployment')
+        
+        
     
     
     
