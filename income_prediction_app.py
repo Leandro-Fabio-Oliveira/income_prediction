@@ -209,7 +209,7 @@ def main_app():
         | 12 | educacao[T.Superior incompleto] | -0.0394 | 0.077   | -0.515 | 0.607 | -0.189 | 0.111  |
         | 13 | idade                           | 0.0054  | 0.001   | 6.221  | 0.000 | 0.004  | 0.007  |
         | 14 | tempo_emprego                   | 0.0613  | 0.001   | 49.060 | 0.000 | 0.059  | 0.064  |
-        """)
+        """, unsafe_allow_html=True)
     
     with tab5:
         st.markdown('## 08 - Deployment')
